@@ -5,6 +5,10 @@ Blockly.Msg.OFF_Msg = "Off";
 Blockly.Msg.buttonA_Msg = "Button_A";
 Blockly.Msg.buttonB_Msg = "Button_B";
 
+//sigh
+Blockly.Msg.mt_sigh = ">=";
+Blockly.Msg.lt_sigh = "<=";
+Blockly.Msg.eq_sigh = "==";
 
 Blockly.defineBlocksWithJsonArray([
 {
@@ -182,6 +186,77 @@ Blockly.defineBlocksWithJsonArray([
   "tooltip": "",
   "helpUrl": ""
 },/////////////////////////////////////
+{
+  "type": "neopixel_toggle",
+  "message0": "NeoPixel toggle color %1 : %2",
+  "args0": [
+    {
+      "type": "field_colour",
+      "name": "tog_color1",
+      "colour": "#ff0000"
+    },
+    {
+      "type": "field_colour",
+      "name": "tog_color2",
+      "colour": "0000ff"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": "#27AE60",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "rainbow_neo",
+  "message0": "NeoPixel rainbow",
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": "#27AE60",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "neopixel_off",
+  "message0": "NeoPixel Off",
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": "#27AE60",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{ 
+  "type": "ultra_read",
+  "message0": "Ultrasonic read  %1 %2",
+  "args0":[
+  {
+    "type": "field_dropdown",
+    "name": "math",
+    "options": [
+      [Blockly.Msg.mt_sigh , ">="],
+      [Blockly.Msg.lt_sigh , "<="],
+      [Blockly.Msg.eq_sigh , "=="]
+    ]
+      
+  },
+  {
+    "type": "input_value",
+    "name": "read_num",
+    "check": "Number"
+  }
+], 
+"output": ["Number", "Boolean"],
+"inputsInline": true,
+//"peviousStatement": null,
+//"nextStatement": null,
+"colour": "#27AE60",
+"tooltip": "",
+"helpUrl": ""
+//-----------------------------------------^
+},
 /*{
   "type": "led_full",
   "message0": "LED %1 is %2",

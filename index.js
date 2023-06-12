@@ -128,7 +128,32 @@ addBoard({
                             </block>
                         `
                     },
+                    {
+                        xml: '<label text="Neo_Pixel"></label>',
+                    },
+                    
                     "neopixel_fill_color1",
+                    "neopixel_toggle",
+                    "rainbow_neo",
+                    "neopixel_off",
+                    {
+                        xml: '<label text="Ultrasonic"></label>',
+                    },
+                    {
+                        xml:`    
+                            <block type="ultra_read">
+                                <value name="math">
+                                    <shadow type="math_number">
+                                        <field name="NUM">>=</field>
+                                    </shadow>
+                                </value>
+                                <value name="read_num">
+                                    <shadow type="math_number">
+                                        <field name="NUM">5</field>
+                                    </shadow>
+                                </value>
+                            </block>`
+                    },
                     ]
                 },
                 {
