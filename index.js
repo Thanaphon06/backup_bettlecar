@@ -162,6 +162,72 @@ addBoard({
                                 </value>
                             </block>`
                     },
+                    {
+                        xml: '<label text="Rainbow_Neopixel"></label>',
+                    },
+                    {
+                        xml:`<block type="controls_forever">
+                            <statement name="block">
+                            <block type = "rainbow_neo">
+                            </block>
+                            </statement>
+                            </block>`
+                       },
+                       {
+                        xml: '<label text="LED_Blink"></label>',
+                    },
+                   {
+                        xml:`<block type="controls_forever">
+                        <statement name="block">
+                            <block type="led_onoff">
+                    <value name="pin_trig">
+                        <shadow type="math_number">
+                            <field name="NUM">Left</field>
+                        </shadow>
+                    </value>
+                    <value name="onoff">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                                <next>
+                                    <block type="controls_wait">
+                                        <value name="time">
+                                            <shadow type="math_number">
+                                                <field name="NUM">1</field>
+                                            </shadow>
+                                        </value>
+                                        <next>
+                                            <block type="led_onoff">
+                    <value name="pin_trig">
+                        <shadow type="math_number">
+                            <field name="NUM">Left</field>
+                        </shadow>
+                    </value>
+                    <value name="onoff">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                                                <next>
+                                                    <block type="controls_wait">
+                                                        <value name="time">
+                                                            <shadow type="math_number">
+                                                                <field name="NUM">1</field>
+                                                            </shadow>
+                                                        </value>
+                                                        
+                                                    </block>
+                                                </next>
+                                            </block>
+                                        </next>
+                                    </block>
+                                </next>
+                            </block>
+                        </statement>
+                    </block>`
+                   },
+                   
                     ]
                 },
                 {
