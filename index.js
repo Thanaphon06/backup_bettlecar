@@ -15,7 +15,15 @@ addBoard({
         "blocks/blocks_advanced.js",
 
         "blocks/generators_pin.js",
-        "blocks/generators_avanced.js"
+        "blocks/generators_avanced.js",
+        "blocks/button_gen.js",
+        "blocks/button_block.js",
+        "blocks/led_blocks.js",
+        "blocks/led_gen.js",
+        "blocks/ultrasonic_block.js",
+        "blocks/ultrasonic_gen.js",
+        "blocks/neo_blocks.js",
+        "blocks/neo_gen.js"
     ],
     modules: [ ],
     firmware: [
