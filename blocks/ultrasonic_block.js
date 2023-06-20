@@ -1,7 +1,11 @@
+Blockly.Msg.mt_sigh = ">=";
+Blockly.Msg.lt_sigh = "<=";
+Blockly.Msg.eq_sigh = "==";
+
 Blockly.defineBlocksWithJsonArray([
     {  
     "type": "ultra_read",
-    "message0": "Ultrasonic read  %1 %2",
+    "message0": "Ultrasonic read  %1 %2cm.",
     "args0":[
     {
       "type": "field_dropdown",
@@ -11,7 +15,7 @@ Blockly.defineBlocksWithJsonArray([
         [Blockly.Msg.lt_sigh , "<="],
         [Blockly.Msg.eq_sigh , "=="]
       ]
-        
+    
     },
     {
       "type": "input_value",

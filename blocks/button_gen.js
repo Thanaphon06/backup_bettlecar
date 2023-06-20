@@ -1,5 +1,5 @@
 Blockly.Python['button'] = function(block) {
-    Blockly.Python.definitions_['from machine import Pin'] = 'from machine import Pin';
+  Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
     Blockly.Python.definitions_['buttonA_pin = 18'] = 'buttonA_pin = 18';
     Blockly.Python.definitions_['buttonB_pin = 5'] = 'buttonB_pin = 5';
     
@@ -23,7 +23,7 @@ Blockly.Python['button'] = function(block) {
     return [code, Blockly.Python.ORDER_NONE];
   };
   Blockly.Python['buttonA_toggle'] = function(block) {
-    Blockly.Python.definitions_['from machine import Pin'] = 'from machine import Pin';
+    Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
     Blockly.Python.definitions_['buttonA_pin = 18'] = 'buttonA_pin = 18';
 
     
@@ -39,7 +39,7 @@ Blockly.Python['button'] = function(block) {
     return [code, Blockly.Python.ORDER_NONE];
   };
   Blockly.Python['buttonB_toggle'] = function(block) {
-    Blockly.Python.definitions_['from machine import Pin'] = 'from machine import Pin';
+    Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
     Blockly.Python.definitions_['buttonB_pin = 5'] = 'buttonB_pin = 5';
     
   

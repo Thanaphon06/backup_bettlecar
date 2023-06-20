@@ -23,7 +23,9 @@ addBoard({
         "blocks/ultrasonic_block.js",
         "blocks/ultrasonic_gen.js",
         "blocks/neo_blocks.js",
-        "blocks/neo_gen.js"
+        "blocks/neo_gen.js",
+        "blocks/dlc.js",
+        "blocks/dlc_gen.js"
     ],
     modules: [ ],
     firmware: [
@@ -86,12 +88,18 @@ addBoard({
                             <block type="led_onoff">
                                 <value name="pin_trig">
                                     <shadow type="math_number">
-                                        <field name="NUM">Left</field>
+                                        <field name="NUM">Left_ON</field>
                                     </shadow>
                                 </value>
-                                <value name="onoff">
+                            </block>
+                        `
+                    },
+                    {
+                        xml: `
+                            <block type="ledoff">
+                                <value name="pin_trig">
                                     <shadow type="math_number">
-                                        <field name="NUM">1</field>
+                                        <field name="NUM">Left_OFF</field>
                                     </shadow>
                                 </value>
                             </block>
@@ -227,7 +235,228 @@ addBoard({
                         </statement>
                     </block>`
                    },
-                   
+                   "stopMotor",
+                        {
+                            xml: `
+                                <block type="Forward">
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="Backward">
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="Left">
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="Right">
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="moveAward">
+                                    <field name="moveAward">0</field>
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="moveBack">
+                                    <field name="moveBack">0</field>
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="moveRight">
+                                    <field name="moveRight">0</field>
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="moveLeft">
+                                    <field name="moveLeft">0</field>
+                                    <field name="speed">0</field>
+                                </block>
+                            `
+                        },
+                        //Motor End /////////////////////////////////
+
+                        {
+                            xml: '<label text="OLED"></label>', 
+                        },
+
+                        //OLED Strat////////////////////////////////
+                         
+                        "oled_init",
+                        {
+                            xml: `
+                                <block type="oled_draw_text">
+                                    <value name="text">
+                                        <shadow type="text">
+                                            <field name="TEXT">Hello World!</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="x">
+                                        <shadow type="math_number">
+                                            <field name="NUM">0</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="y">
+                                        <shadow type="math_number">
+                                            <field name="NUM">0</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="oled_draw_line">
+                                    <value name="x1">
+                                        <shadow type="math_number">
+                                            <field name="NUM">0</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="y1">
+                                        <shadow type="math_number">
+                                            <field name="NUM">0</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="x2">
+                                        <shadow type="math_number">
+                                            <field name="NUM">60</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="y2">
+                                        <shadow type="math_number">
+                                            <field name="NUM">60</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="oled_draw_rect">
+                                    <value name="x">
+                                        <shadow type="math_number">
+                                            <field name="NUM">0</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="y">
+                                        <shadow type="math_number">
+                                            <field name="NUM">0</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="width">
+                                        <shadow type="math_number">
+                                            <field name="NUM">60</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="height">
+                                        <shadow type="math_number">
+                                            <field name="NUM">60</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                        //OLED End ///////////////////////////////////
+
+                        {
+                            xml: '<label text="Buzzer"></label>', 
+                        },
+
+                         //Buzzer Start //////////////////////////////
+                        {
+                            xml: `
+                                <block type="buzzer1">
+                                    <value name="pin">
+                                        <shadow type="math_number">
+                                            <field name="NUM">23</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="freq">
+                                        <shadow type="math_number">
+                                            <field name="NUM">1000</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="time">
+                                        <shadow type="math_number">
+                                            <field name="NUM">1</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="buzzer2">
+                                    <value name="pin">
+                                        <shadow type="math_number">
+                                            <field name="NUM">23</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="freq">
+                                        <shadow type="math_number">
+                                            <field name="NUM">1000</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="buzzer3">
+                                    <value name="pin">
+                                        <shadow type="math_number">
+                                            <field name="NUM">23</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                        //Buzzer End /////////////////////////////////
+
+                        {
+                            xml: '<label text="servo"></label>', 
+                        },
+
+                        //servo Start////////////////////////////////
+                        {
+                            xml: `
+                                <block type="servo">
+                                    <value name="pin">
+                                        <shadow type="math_number">
+                                            <field name="NUM">16</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="angle">
+                                        <shadow type="math_number">
+                                            <field name="NUM">90</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                    
                     ]
                 },
                 {
@@ -356,6 +585,7 @@ addBoard({
                                 </block>
                             `
                         },
+                        
                     ]
                 },
                 {

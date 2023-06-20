@@ -1,5 +1,5 @@
 Blockly.Python['neopixel_fill_color1'] = function(block) {
-    Blockly.Python.definitions_['import_pin_machine'] = 'from machine import Pin';
+  Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
     Blockly.Python.definitions_['import_neopixel_neo'] = 'from neopixel import NeoPixel';
   
     Blockly.Python.definitions_['LED_PIN'] = 'LED_PIN = 4';
@@ -18,7 +18,7 @@ Blockly.Python['neopixel_fill_color1'] = function(block) {
     return code;
   };
   Blockly.Python['neopixel_off'] = function(block) {
-    Blockly.Python.definitions_['import_pin_machine'] = 'from machine import Pin';
+    Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
     Blockly.Python.definitions_['import_neopixel_neo'] = 'from neopixel import NeoPixel';
   
     Blockly.Python.definitions_['LED_PIN'] = 'LED_PIN = 4';
@@ -31,7 +31,7 @@ Blockly.Python['neopixel_fill_color1'] = function(block) {
   };
   Blockly.Python['neopixel_toggle'] = function(block) {
     Blockly.Python.definitions_['import_time'] = 'import time';
-    Blockly.Python.definitions_['import_pin_machine'] = 'from machine import Pin';
+    Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
     Blockly.Python.definitions_['import_neopixel_neo'] = 'from neopixel import NeoPixel';
   
     Blockly.Python.definitions_['LED_PIN'] = 'LED_PIN = 4';
@@ -74,7 +74,7 @@ Blockly.Python['neopixel_fill_color1'] = function(block) {
   };
   Blockly.Python['rainbow_neo'] = function(block) {
     Blockly.Python.definitions_['import_time'] = 'from time import sleep_ms';
-    Blockly.Python.definitions_['import_pin_machine'] = 'from machine import Pin';
+    Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
     Blockly.Python.definitions_['import_neopixel_neo'] = 'from neopixel import NeoPixel';
   
     Blockly.Python.definitions_['LED_PIN'] = 'LED_PIN = 4';

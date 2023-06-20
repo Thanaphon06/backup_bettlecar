@@ -1,14 +1,3 @@
-Blockly.Msg.LED_LIFT_Msg = "Left";
-Blockly.Msg.LED_RIGHT_Msg = "Right";
-Blockly.Msg.On_Msg = "ON";
-Blockly.Msg.OFF_Msg = "Off";
-Blockly.Msg.buttonA_Msg = "Button_A";
-Blockly.Msg.buttonB_Msg = "Button_B";
-
-//sigh
-Blockly.Msg.mt_sigh = ">=";
-Blockly.Msg.lt_sigh = "<=";
-Blockly.Msg.eq_sigh = "==";
 
 Blockly.defineBlocksWithJsonArray([
 {
