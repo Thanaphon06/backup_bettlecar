@@ -94,17 +94,7 @@ addBoard({
                             </block>
                         `
                     },
-                    {
-                        xml: `
-                            <block type="ledoff">
-                                <value name="pin_trig">
-                                    <shadow type="math_number">
-                                        <field name="NUM">Left_OFF</field>
-                                    </shadow>
-                                </value>
-                            </block>
-                        `
-                    },
+                    
                     {
                         xml: '<label text="Button"></label>',
                     },
