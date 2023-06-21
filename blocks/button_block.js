@@ -5,7 +5,7 @@ Blockly.Msg.buttonB_Msg = "SW_B";
 Blockly.defineBlocksWithJsonArray([
 {
     
-        "type":"button",
+        "type":"switch",
         "message0": "Button: %1 is put",
         "args0":[
           {
@@ -31,7 +31,7 @@ Blockly.defineBlocksWithJsonArray([
       
       },
       {
-        "type":"buttonA_toggle",
+        "type":"switch_toggle",
         "message0": "Switch: %1 is on ",
         "args0":[
           {
@@ -40,6 +40,9 @@ Blockly.defineBlocksWithJsonArray([
             "options" : [
               [
                 Blockly.Msg.buttonA_Msg , "18"
+              ],
+              [
+                Blockly.Msg.buttonB_Msg , "5"
               ]
             ]
           }
@@ -52,7 +55,7 @@ Blockly.defineBlocksWithJsonArray([
       "tooltip": "",
       "helpUrl": ""
       },
-      {
+      /*{
         "type":"buttonB_toggle",
         "message0": "Switch: %1 is on ",
         "args0":[
@@ -73,6 +76,6 @@ Blockly.defineBlocksWithJsonArray([
       "colour": "#27AE60",
       "tooltip": "",
       "helpUrl": ""
-      },///////////////////////////////////////////
+      },*/
 
 ])

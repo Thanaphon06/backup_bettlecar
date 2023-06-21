@@ -27,7 +27,8 @@ addBoard({
         "blocks/dlc.js",
         "blocks/dlc_gen.js"
     ],
-    modules: [ ],
+    modules: [
+     ],
     firmware: [
         {
             name: "MicroPython for ESP32 Dev Board V1.6.0",
@@ -37,6 +38,23 @@ addBoard({
             board: "ESP32 Dev Board",
             cpu: "ESP32"
         }
+    ],
+    examples: [
+        "switch",
+        {
+            name: "on_off_button",
+            files: "example/button_on",
+        },
+        {
+            name: "toggle_switch",
+            files: "example/toggle_sw",
+        },
+        "ultrasonic",
+        {
+            name: "ultrasonic",
+            files: "example/ultra_neo",
+        },
+
     ],
     usb: [
         { // CP2104
@@ -96,14 +114,14 @@ addBoard({
                     },
                     
                     {
-                        xml: '<label text="Button"></label>',
+                        xml: '<label text="switch"></label>',
                     },
                     {
                         xml:`
-                            <block type = "button">
+                            <block type = "switch">
                                 <value name = "pin">
                                     <shadow type = "math_number">
-                                        <field name = "NUM">Button_A</field>
+                                        <field name = "NUM">SW_A</field>
                                     </shadow>
                                 </value>
                             </block>
@@ -114,26 +132,16 @@ addBoard({
                     },
                     {
                         xml:`
-                            <block type = "buttonA_toggle">
+                            <block type = "switch_toggle">
                                 <value name = "pin">
                                     <shadow type = "math_number">
-                                        <field name = "NUM">Button_A</field>
+                                        <field name = "NUM">SW_A</field>
                                     </shadow>
                                 </value>
                             </block>
                         `
                     },
-                    {
-                        xml:`
-                            <block type = "buttonB_toggle">
-                                <value name = "pin">
-                                    <shadow type = "math_number">
-                                        <fied name = "NUM">Button_B</fied>
-                                    </shadow>
-                                </value>
-                            </block>
-                        `
-                    },
+                    
                     {
                         xml: '<label text="Neo_Pixel"></label>',
                     },

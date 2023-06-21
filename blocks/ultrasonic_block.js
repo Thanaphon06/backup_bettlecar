@@ -5,7 +5,7 @@ Blockly.Msg.eq_sigh = "==";
 Blockly.defineBlocksWithJsonArray([
     {  
     "type": "ultra_read",
-    "message0": "Ultrasonic read  %1 %2cm.",
+    "message0": "Ultrasonic read  %1 %2 Centimeter",
     "args0":[
     {
       "type": "field_dropdown",
