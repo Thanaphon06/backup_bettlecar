@@ -11,7 +11,7 @@ addBoard({
         // "css/field_bitmap.css",
     ],
     blocks: [
-        "blocks/blocks_pin.js",
+        /*"blocks/blocks_pin.js",
         "blocks/blocks_advanced.js",
 
         "blocks/generators_pin.js",
@@ -25,7 +25,14 @@ addBoard({
         "blocks/neo_blocks.js",
         "blocks/neo_gen.js",
         "blocks/dlc.js",
-        "blocks/dlc_gen.js"
+        "blocks/dlc_gen.js",
+        "blocks/buzzer_block.js",
+        "blocks/buzzer_gen.js",
+        "blocks/blue_block.js",
+        "blocks/blue_gen.js",
+        "blocks/ir_gen.js",
+        "blocks/ir_block.js",*/
+
     ],
     modules: [
      ],
@@ -100,7 +107,18 @@ addBoard({
                     blocks: [
                         {
                             xml: '<label text="LED"></label>',
-                        },
+                        }, 
+                        /*{
+                            xml: `
+                                <block type="buz_play_music">
+                                    <value name="music">
+                                        <shadow type="math_number">
+                                            <field name="NUM">Happy Birth Day</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },*/
                         {
                         xml: `
                             <block type="led_onoff">
@@ -112,6 +130,20 @@ addBoard({
                             </block>
                         `
                     },
+                   
+                    {
+                        xml: `
+                            <block type="buz_play_music">
+                                <value name="music">
+                                    <shadow type="math_number">
+                                        <field name="NUM">Happy Birth Day</field>
+                                    </shadow>
+                                </value>
+                            </block>
+                        `
+                    },
+                    "blue_con",
+                    "ir_get_sig",
                     
                     {
                         xml: '<label text="switch"></label>',

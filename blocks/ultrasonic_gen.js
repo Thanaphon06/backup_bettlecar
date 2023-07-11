@@ -1,6 +1,5 @@
 Blockly.Python['ultra_read'] = function(block) {
-    Blockly.Python.definitions_['import_beetlecar_ultra_distance'] = 'from beetlecar_ultra import distance';
-    Blockly.Python.definitions_['from_machine_pin'] = 'from machine import Pin';
+    Blockly.Python.definitions_['import_beetlecar'] = 'import beetlecar';
   
     
     var math_choice = block.getFieldValue('math');
