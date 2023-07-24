@@ -88,15 +88,15 @@ addBoard({
         },
         "Servo",
         {
-            name: "Servo Hold Object",
+            name: "Servo Clamp Object 1",
             files: "examples/servo_ex",
         },
-        {
+        /*{
             name: "Servo Hold Object",
             files: "examples/HBD_car",
-        },
+        },*/
         {
-            name: "Servo Hold Object",
+            name: "Servo Clamp Object 2",
             files: "examples/servo_car",
         },
 
