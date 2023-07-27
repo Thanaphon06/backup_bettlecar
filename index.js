@@ -116,29 +116,7 @@ addBoard({
             icon: "../kidbright32/images/puzzle.png",
             blocks: [
                 {
-                    /*name: "test",
-                    icon: "/images/icon/led.png",
-                    color: "#e64c3c",
-                    blocks: [
-                        
-                        {
-                        xml: `
-                        <block type="led_full">
-                        <value name ="side_led">
-                            <shadow type="math_number">
-                                <field name="NUM">Left</field>
-                            </shadow>
-                        </value>
-                        <value name="isonoff">
-                            <shadow type="math_number">
-                                < field name="NUM">1</>
-                            </shadow>
-                        </value>
-                    </block>
-                        `
-                        }
-                    ]
-                    },*/
+                   
                     
                     name: "Beetle Car",
                     icon: "images/beetlecar.png",
@@ -147,65 +125,6 @@ addBoard({
                         "stopMotor",
                         {
                             xml: `
-                                <block type="Forward">
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="Backward">
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="Left">
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="Right">
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="moveAward">
-                                    <field name="move_sec">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="moveBack">
-                                    <field name="move_sec">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="moveRight">
-                                    <field name="move_sec">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="moveLeft">
-                                    <field name="move_sec">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },{
-                            xml: `
                                 <block type="motor_control">
                                     <field name="mcontrol">0</field>
                                     <field name="move">0</field>
@@ -213,7 +132,7 @@ addBoard({
                                 </block>
                             `
                         },
-                        {
+                       {
                             xml: `
                                 <block type="motor_control0">
                                     <field name="motor_control0">0</field>
@@ -242,12 +161,11 @@ addBoard({
                        {
                             xml: '<label text="Line Tracking"></label>'
                         },
-                                     {
+                        {
                             xml: `
-                                <block type="linetracking_pin">
-                                    <field name="pin1">39</field>
-                                    <field name="pin2">34</field>
-                                    <field name="pin3">35</field>
+                                <block type="linetracking_threshold">
+                                    <field name="black">0</field>
+                                    <field name="white">0</field>
                                 </block>
                             `
                         },
@@ -260,12 +178,12 @@ addBoard({
                             `
                         },
         
-                        //Line tracking END
+                        /*Line tracking END
                         {
                             xml: '<label text="OLED"></label>', 
                         },
 
-                        //OLED Strat////////////////////////////////
+                        OLED Strat
                          
                         "oled_init",
                         {
@@ -343,7 +261,7 @@ addBoard({
                         },
                         "oled_fill",
                         "oled_clear",
-                        //OLED End ///////////////////////////////////
+                        OLED End *///////////////////////////////////
 
                         {
                             xml: '<label text="Buzzer"></label>', 
@@ -430,62 +348,7 @@ addBoard({
                             </block>
                         `
                         },
-                        //{
-                        //    xml: '<label text="LED_Blink"></label>',
-                        //},
-                       /*{
-                            xml:`<block type="controls_forever">
-                            <statement name="block">
-                                <block type="led_onoff">
-                        <value name="pin_trig">
-                            <shadow type="math_number">
-                                <field name="NUM">Left</field>
-                            </shadow>
-                        </value>
-                        <value name="onoff">
-                            <shadow type="math_number">
-                                <field name="NUM">1</field>
-                            </shadow>
-                        </value>
-                                    <next>
-                                        <block type="controls_wait">
-                                            <value name="time">
-                                                <shadow type="math_number">
-                                                    <field name="NUM">1</field>
-                                                </shadow>
-                                            </value>
-                                            <next>
-                                                <block type="led_onoff">
-                        <value name="pin_trig">
-                            <shadow type="math_number">
-                                <field name="NUM">Left</field>
-                            </shadow>
-                        </value>
-                        <value name="onoff">
-                            <shadow type="math_number">
-                                <field name="NUM">0</field>
-                            </shadow>
-                        </value>
-                                                    <next>
-                                                        <block type="controls_wait">
-                                                            <value name="time">
-                                                                <shadow type="math_number">
-                                                                    <field name="NUM">1</field>
-                                                                </shadow>
-                                                            </value>
-                                                            
-                                                        </block>
-                                                    </next>
-                                                </block>
-                                            </next>
-                                        </block>
-                                    </next>
-                                </block>
-                            </statement>
-                        </block>`
-                       },*/
-
-                        //LED End /////////////////////////////////////
+                        
                        
                         {
                             xml: '<label text="Ultrasonic"></label>'
@@ -520,19 +383,7 @@ addBoard({
                             "neopixel_off",
                             "neopixel_toggle",
                             "rainbow_neo",
-                          /*  {
-                                xml: '<label text="Rainbow_Neopixel"></label>',
-                            },
-                            {
-                                xml:`<block type="controls_forever">
-                                    <statement name="block">
-                                    <block type = "rainbow_neo">
-                                    </block>
-                                    </statement>
-                                    </block>`
-                               },*/
-
-                        //NeoPixel  End ////////////////////////////////
+                          
                         
                         {
                             xml: '<label text="Switch"></label>',

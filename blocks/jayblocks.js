@@ -62,7 +62,7 @@ Blockly.defineBlocksWithJsonArray([
       "name": "pin",
       "options": [
         [
-          "Lift Up/Lift Down",
+          "LiftUp/LiftDown",
           "17"
         ],
         [
@@ -87,154 +87,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 //servo End //////////////////////////////////
 
-/*OLED Start /////////////////////////////////
 
-{
-  "type": "oled_init",
-  "message0": "OLED initial with size %1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "size",
-      "options": [
-        [
-          "128x64",
-          "0"
-        ],
-        [
-          "128x32",
-          "1"
-        ]
-      ]
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": "#D68910",
-},
-{
-  "type": "oled_draw_text",
-  "message0": "OLED draw text %1 at (x: %2 , y: %3 )",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "text"
-    },
-    {
-      "type": "input_value",
-      "name": "x",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "y",
-      "check": "Number"
-    }
-  ],
-  "inputsInline": true,
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": "#D68910",
-},
-{
-  "type": "oled_draw_line",
-  "message0": "OLED draw line start at (x: %1 , y: %2 ) end at (x: %3 , y: %4 )",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "x1",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "y1",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "x2",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "y2",
-      "check": "Number"
-    }
-  ],
-  "inputsInline": true,
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": "#D68910",
-},
-{
-  "type": "oled_draw_rect",
-  "message0": "OLED draw rectangle start at (x: %1 , y: %2 ) width: %3 height: %4 fill: %5",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "x",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "y",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "width",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "height",
-      "check": "Number"
-    },
-    {
-      "type": "field_dropdown",
-      "name": "fill",
-      "options": [
-        [
-          "No",
-          "0"
-        ],
-        [
-          "Yes",
-          "1"
-        ]
-      ]
-    }
-  ],
-  "inputsInline": true,
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": "#D68910",
-  "tooltip": "Draw rectangle on OLED",
-  "helpUrl": ""
-},
-{
-  "type": "oled_fill",
-  "message0": "OLED fill",
-  "inputsInline": true,
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": "#D68910",
-  "tooltip": "Fill screen",
-  "helpUrl": ""
-},
-{
-  "type": "oled_clear",
-  "message0": "OLED clear",
-  "inputsInline": true,
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": "#D68910",
-  "tooltip": "clear screen",
-  "helpUrl": ""
-},
-
-
-OLED End *////////////////////////////////////
 
 //Buzzer Start ///////////////////////////////
 {
@@ -626,27 +479,107 @@ OLED End *////////////////////////////////////
 },
   //IR_END
  //Line tracking STATE
- {
-  "type": "linetracking_threshold",
-  "message0": "Line tracking set value threshold: Black  %1 White %2",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "black",
-      "value": 0
-    },
-    {
-      "type": "field_number",
-      "name": "white",
-      "value": 0
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": "#D68910",
-  "tooltip": "",
-  "helpUrl": ""
-},
+  {
+    "type": "linetracking_pin",
+    "message0": "Line Tracking sensor read pin1:  %1 pin2: %2 pin3: %3",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "sensor1",
+        "options": [
+          [
+            "SS1",
+            "36"
+          ],
+          [
+            "SS2",
+            "39"
+          ],
+          [
+            "SS3",
+            "34"
+          ],
+          [
+            "SS4",
+            "35"
+          ],
+          [
+            "SS5",
+            "13"
+          ],
+          [
+            "None",
+            "None"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "sensor2",
+        "options": [
+          [
+            "SS1",
+            "36"
+          ],
+          [
+            "SS2",
+            "39"
+          ],
+          [
+            "SS3",
+            "34"
+          ],
+          [
+            "SS4",
+            "35"
+          ],
+          [
+            "SS5",
+            "13"
+          ],
+          [
+            "None",
+            "None"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "sensor3",
+        "options": [
+          [
+            "SS1",
+            "36"
+          ],
+          [
+            "SS2",
+            "39"
+          ],
+          [
+            "SS3",
+            "34"
+          ],
+          [
+            "SS4",
+            "35"
+          ],
+          [
+            "SS5",
+            "13"
+          ],
+          [
+            "None",
+            "None"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#D68910",
+    "tooltip": "",
+    "helpUrl": ""
+  },
   {
     "type": "linetracking_sensor",
     "message0": "read %1 %2 threshold",
@@ -758,7 +691,65 @@ OLED End *////////////////////////////////////
     "tooltip": "",
     "helpUrl": ""
   },
-  
+
+  {
+    "type": "motor_control",
+    "message0": "motor %1 move %2 at speed  %3",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "mcontrol",
+        "options": [
+          [
+            "left",
+            "left"
+          ],
+          [
+            "right",
+            "right"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "move",
+        "options": [
+          [
+            "forward",
+            "forward"
+          ],
+          [
+            "backward",
+            "backward"
+          ]
+        ]
+      },
+      {
+        "type": "field_dropdown",
+        "name": "speed",
+        "options": [
+          [
+            "50%",
+            "512"
+          ],
+          [
+            "75%",
+            "768"
+          ],
+          [
+            "100%",
+            "1023"
+          ]
+        ]
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "#D4AC0D",
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
   {
     "type": "motor_control0",
     "message0": "motor %1 move at speed %2",
