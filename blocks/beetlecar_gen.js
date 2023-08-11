@@ -387,7 +387,8 @@
           
           Blockly.Python.definitions_['import_beetlecar_ble'] = 'import beetlecar_BLE';
           
-          var code = '\n'
+          var bluetooth_name = Blockly.Python.valueToCode(block, 'blue_name', Blockly.Python.ORDER_ATOMIC);
+          var code = `beetlecar_BLE.ble = beetlecar_BLE.ESP32_BLE(${bluetooth_name})\n`
           return code;
         };
         Blockly.Python['blue_command'] = function(block) {
@@ -579,5 +580,60 @@ Blockly.Python['motor_control2'] = function(block) {
   } else if (dropdown_motor_control2 == 'right') {
    code = `beetlecar.motor_right(${speed})\n`;
   }
+  return code;
+};
+/////////////// MOTOR 2.0 ///////////////
+Blockly.Python['new_motor'] = function(block) {
+  Blockly.Python.definitions_['import_beetlecar'] = 'import beetlecar';
+  var move = block.getFieldValue('move');
+  var speed = block.getFieldValue('speed');
+
+  
+  var code = '';
+  if (move == 'forward') {
+    code = 'beetlecar.forward' + '(' + speed + ')\n';
+  } else if (move == 'backward') {
+    Blockly.Python.definitions_['Backward'] =
+    code = 'beetlecar.backward' + '(' + speed + ')\n';
+  } else if (move == 'left') {
+    Blockly.Python.definitions_['Left'] =
+    code = 'beetlecar.left' + '(' + speed + ')\n';
+  } else if (move == 'right') {
+    Blockly.Python.definitions_['Right'] =
+    code = 'beetlecar.right' + '(' + speed + ')\n';
+  }
+  return code;
+};
+Blockly.Python['new_motor2'] = function(block) {
+  Blockly.Python.definitions_['import_beetlecar'] = 'import beetlecar';
+  var move = block.getFieldValue('move');
+  var speed = block.getFieldValue('speed');
+  var time = block.getFieldValue('time');
+
+ 
+  var code = '';
+  if (move == 'forward') {
+    Blockly.Python.definitions_['Forward_for_sec'] =
+      
+    code = 'beetlecar.forward_for_sec' + '(' + speed + ', '+ time +')\n';
+  } else if (move == 'backward') {
+    Blockly.Python.definitions_['Backward_for_sec'] =
+      
+    code = 'beetlecar.backward_for_sec' + '(' + speed + ', '+ time +')\n';
+  } else if (move == 'left') {
+    Blockly.Python.definitions_['Left_for_sec'] =
+      
+    code = 'beetlecar.left_for_sec' + '(' + speed + ', '+ time +')\n';
+  } else if (move == 'right') {
+    Blockly.Python.definitions_['Right_for_sec'] =
+      
+    code = 'beetlecar.right_for_sec' + '(' + speed + ', '+ time +')\n';
+  }
+  return code;
+};
+Blockly.Python['newstopMotor'] = function(block) {
+  Blockly.Python.definitions_['import_beetlecar'] = 'import beetlecar';
+  var code = 'beetlecar.stop()\n';
+  
   return code;
 };

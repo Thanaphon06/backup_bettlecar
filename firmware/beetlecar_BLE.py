@@ -99,7 +99,7 @@ np = NeoPixel(Pin(NEO_PIN, Pin.OUT), NEO_COUNT)
 
 
 
-ble = ESP32_BLE("ESP32BLE")
+#ble = ESP32_BLE("ESP32BLE")
 
 def buttons_irq(pin):
     led.value(not led.value())
@@ -175,5 +175,3 @@ def blue_connect():
         print('LED is OFF.' )
         ble.send('LED is OFF.')
     sleep_ms(100)'''
-
-

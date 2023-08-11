@@ -497,7 +497,13 @@ OLED End *////////////////////////////////////
  //BLUE_START
  { 
     "type": "blue_con",
-    "message0": "Bluetooth ON",
+    "message0": "Bluetooth Name: %1 ON",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "blue_name"
+      },
+    ],
     "inputsInline": true,
     //"previousStatement": null,
     "nextStatement": null,
@@ -539,6 +545,7 @@ OLED End *////////////////////////////////////
     "tooltip": "",
     "helpUrl": ""
   },
+  
   //BLUE_END
 //IR_START
 { 
@@ -908,4 +915,100 @@ OLED End *////////////////////////////////////
     "tooltip": "",
     "helpUrl": ""
   },
+  ////////MOTOR 2.0///////////
+  {
+    "type": "new_motor",
+    "message0": "Move %1 PWM %2",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "move",
+        "options": [
+          [
+            "FORWARD",
+            "forward"
+          ],
+          [
+            "BACKWARD",
+            "backward"
+          ],
+          [
+            "LEFT",
+            "left"
+          ],
+          [
+            "RIGHT",
+            "right"
+          ]
+        ]
+      },
+      {
+        "type": "field_number",
+        "name": "speed",
+        "value": 0,
+        "min": 0,
+        "max": 1023
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "new_motor2",
+    "message0": "Move %1 PWM %2 for %3 sec",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "move",
+        "options": [
+          [
+            "FORWARD",
+            "forward"
+          ],
+          [
+            "BACKWARD",
+            "backward"
+          ],
+          [
+            "LEFT",
+            "left"
+          ],
+          [
+            "RIGHT",
+            "right"
+          ]
+        ]
+      },
+      {
+        "type": "field_number",
+        "name": "speed",
+        "value": 0,
+        "min": 0,
+        "max": 1023
+      },
+      {
+        "type": "field_number",
+        "name": "time",
+        "value": 0
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "newstopMotor",
+    "message0": "stopMotor",
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+  }
 ]);

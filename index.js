@@ -65,7 +65,7 @@ addBoard({
         "Line Tracking",
         {
             name: "Line Tracking",
-            files: "examples/exlinetracking",
+            files: "examples/linetracking2.0",
         },
         "Line Tracking",
         {
@@ -76,13 +76,14 @@ addBoard({
             name: "Buzzer Play Song",
             files: "examples/buzzer_song",
         },
+        
         "Neopixel",
         {
             name: "Rainbow Neopixel",
             files: "examples/neo_rainbow",
         },
         "Motor",
-        {
+       {
             name: "Motor",
             files: "examples/motor_ex",
         },
@@ -122,61 +123,84 @@ addBoard({
                     icon: "images/beetlecar.png",
                     color: "#e64c3c",
                     blocks: [
-                        "stopMotor",
                         {
-                            xml: `
-                                <block type="motor_control">
-                                    <field name="mcontrol">0</field>
-                                    <field name="move">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
-                       {
-                            xml: `
-                                <block type="motor_control0">
-                                    <field name="motor_control0">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
+                            xml: '<label text="Beetlecar"></label>'
+                            
                         },
                         {
-                            xml: `
-                                <block type="motor_control1">
-                                    <field name="motor_control1">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
+                            xml: '<label text="Motor"></label>'
+                            
                         },
-                        {
-                            xml: `
-                                <block type="motor_control2">
-                                    <field name="motor_control2">0</field>
-                                    <field name="speed">0</field>
-                                </block>
-                            `
-                        },
+                                                //////////// MOTOR 2.0 ///////////////
+                                                {
+                                                    xml: `
+                                                    <block type="new_motor">
+                                                        <field name="move">0</field>
+                                                        <field name="speed">180</field>
+                                                    </block>
+                                                `
+                                                },
+                                                {
+                                                    xml: `
+                                                    <block type="new_motor2">
+                                                        <field name="move">0</field>
+                                                        <field name="speed">180</field>
+                                                        <field name="time">0</field>
+                                                    </block>
+                                                `
+                                                },
+                                                "newstopMotor",
+                                                {
+                                                    xml: '<label text="Ultrasonic"></label>'
+                                                },
+                        
+                                                //Ultrasonic Start ////////////////////////////
+                                                {
+                                                    xml:`    
+                                                        <block type="ultra_read">
+                                                            <value name="math">
+                                                                <shadow type="math_number">
+                                                                    <field name="NUM">>=</field>
+                                                                </shadow>
+                                                            </value>
+                                                            <value name="read_num">
+                                                                <shadow type="math_number">
+                                                                    <field name="NUM">5</field>
+                                                                </shadow>
+                                                            </value>
+                                                        </block>`
+                                                },
+                                                {
+                                                    xml: '<label text="Switch"></label>',
+                                                },
+                                                {
+                                                    xml:`
+                                                        <block type = "switch">
+                                                            <value name = "pin">
+                                                                <shadow type = "math_number">
+                                                                    <field name = "NUM">SW A</field>
+                                                                </shadow>
+                                                            </value>
+                                                        </block>
+                                                    `
+                                                },
+                                                {
+                                                    xml: '<label text="Toggle Switch"></label>',
+                                                },
+                                                {
+                                                    xml:`
+                                                        <block type = "switch_toggle">
+                                                            <value name = "pin">
+                                                                <shadow type = "math_number">
+                                                                    <field name = "NUM">SW A</field>
+                                                                </shadow>
+                                                            </value>
+                                                        </block>
+                                                    `
+                                                },
+                                                //Ultrasonic End ///////////////////////////////
                         //Motor End /////////////////////////////////
-                        //Line tracking start
-                       {
-                            xml: '<label text="Line Tracking"></label>'
-                        },
-                        {
-                            xml: `
-                                <block type="linetracking_threshold">
-                                    <field name="black">0</field>
-                                    <field name="white">0</field>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="linetracking_sensor">
-                                    <field name="sensor">0</field>
-                                    <field name="operator">0</field>
-                                </block>
-                            `
-                        },
+                        
         
                         /*Line tracking END
                         {
@@ -263,51 +287,7 @@ addBoard({
                         "oled_clear",
                         OLED End *///////////////////////////////////
 
-                        {
-                            xml: '<label text="Buzzer"></label>', 
-                        },
-
-                         //Buzzer Start //////////////////////////////
-                        {
-                            xml: `
-                                <block type="buzzer1">
-                                    <value name="freq">
-                                        <shadow type="math_number">
-                                            <field name="NUM">1000</field>
-                                        </shadow>
-                                    </value>
-                                    <value name="time">
-                                        <shadow type="math_number">
-                                            <field name="NUM">1</field>
-                                        </shadow>
-                                    </value>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: `
-                                <block type="buzzer2">
-                                    <value name="freq">
-                                        <shadow type="math_number">
-                                            <field name="NUM">1000</field>
-                                        </shadow>
-                                    </value>
-                                </block>
-                            `
-                        },
-                            "buzzer3",
-                    {
-                        xml: `
-                            <block type="buz_play_music">
-                                <value name="music">
-                                    <shadow type="math_number">
-                                        <field name="NUM">Happy Birth Day</field>
-                                    </shadow>
-                                </value>
-                            </block>
-                        `
-                    },
-                        //Buzzer End /////////////////////////////////
+                       
 
                         {
                             xml: '<label text="Servo"></label>', 
@@ -350,28 +330,7 @@ addBoard({
                         },
                         
                        
-                        {
-                            xml: '<label text="Ultrasonic"></label>'
-                        },
-
-                        //Ultrasonic Start ////////////////////////////
-                        {
-                            xml:`    
-                                <block type="ultra_read">
-                                    <value name="math">
-                                        <shadow type="math_number">
-                                            <field name="NUM">>=</field>
-                                        </shadow>
-                                    </value>
-                                    <value name="read_num">
-                                        <shadow type="math_number">
-                                            <field name="NUM">5</field>
-                                        </shadow>
-                                    </value>
-                                </block>`
-                        },
-                       
-                        //Ultrasonic End ///////////////////////////////
+                        
 
                         {
                             xml:'<label text="NeoPixel"></label>'
@@ -385,37 +344,86 @@ addBoard({
                             "rainbow_neo",
                           
                         
-                        {
-                            xml: '<label text="Switch"></label>',
-                        },
-                        {
-                            xml:`
-                                <block type = "switch">
-                                    <value name = "pin">
-                                        <shadow type = "math_number">
-                                            <field name = "NUM">SW A</field>
-                                        </shadow>
-                                    </value>
-                                </block>
-                            `
-                        },
-                        {
-                            xml: '<label text="Toggle Switch"></label>',
-                        },
-                        {
-                            xml:`
-                                <block type = "switch_toggle">
-                                    <value name = "pin">
-                                        <shadow type = "math_number">
-                                            <field name = "NUM">SW A</field>
-                                        </shadow>
-                                    </value>
-                                </block>
-                            `
-                        },
+                        
                         //Toggle_Button  Start ////////////////////////////////
                         {
+                            xml: '<label text="Buzzer"></label>', 
+                        },
+
+                         
+                        {
+                            xml: `
+                                <block type="buzzer1">
+                                    <value name="freq">
+                                        <shadow type="math_number">
+                                            <field name="NUM">1000</field>
+                                        </shadow>
+                                    </value>
+                                    <value name="time">
+                                        <shadow type="math_number">
+                                            <field name="NUM">1</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                        {
+                            xml: `
+                                <block type="buzzer2">
+                                    <value name="freq">
+                                        <shadow type="math_number">
+                                            <field name="NUM">1000</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                        },
+                            "buzzer3",
+                    {
+                        xml: `
+                            <block type="buz_play_music">
+                                <value name="music">
+                                    <shadow type="math_number">
+                                        <field name="NUM">Happy Birth Day</field>
+                                    </shadow>
+                                </value>
+                            </block>
+                        `
+                    },
+                        //Buzzer End /////////////////////////////////
+                        //Line tracking start
+                       {
+                        xml: '<label text="Line Tracking"></label>'
+                    },
+                    {
+                        xml: `
+                            <block type="linetracking_threshold">
+                                <field name="black">0</field>
+                                <field name="white">0</field>
+                            </block>
+                        `
+                    },
+                    {
+                        xml: `
+                            <block type="linetracking_sensor">
+                                <field name="sensor">0</field>
+                                <field name="operator">0</field>
+                            </block>
+                        `
+                    },
+                        {
                             xml: '<label text="Bluetooth"></label>',
+                        },
+                        {
+                            xml:`
+                                <block type = "blue_con">
+                                    <value name = "blue_name">
+                                        <shadow type = "text">
+                                            <field name = "text">Beetlecar1</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
                         },
             
                         {
