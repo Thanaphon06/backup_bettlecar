@@ -296,7 +296,7 @@ addBoard({
                         //servo Start////////////////////////////////
                         {
                             xml: `
-                                <block type="servo">
+                                <block type="servo">  
                                     <value name="pin">
                                         <shadow type="math_number">
                                             <field name="NUM">16</field>
@@ -323,6 +323,28 @@ addBoard({
                                 <value name="pin_trig">
                                     <shadow type="math_number">
                                         <field name="NUM">Left ON</field>
+                                    </shadow>
+                                </value>
+                            </block>
+                        `
+                        },
+                        {
+                            xml: `
+                            <block type="led_left">
+                                <value name="pin_trig">
+                                    <shadow type="math_number">
+                                        <field name="NUM">Left ON</field>
+                                    </shadow>
+                                </value>
+                            </block>
+                        `
+                        },
+                        {
+                            xml: `
+                            <block type="led_right">
+                                <value name="pin_trig">
+                                    <shadow type="math_number">
+                                        <field name="NUM">Right ON</field>
                                     </shadow>
                                 </value>
                             </block>

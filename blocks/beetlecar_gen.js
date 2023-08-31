@@ -87,14 +87,13 @@
         //Motor End ///////////////////////////////////
         
         // servo Start ////////////////////////////////
-        Blockly.Python['servo'] = function(block) {
-        Blockly.Python.definitions_['from_machine_import_pin'] = 'from machine import Pin,PWM';
+        Blockly.Python['servo'] = function(block) { //ชื่อที่เราตั้งไว้
+        Blockly.Python.definitions_['from_machine_import_pin'] = 'from machine import Pin,PWM'; //ส่วน import
         
-        var value_pin = block.getFieldValue('pin');
-        var value_angle = block.getFieldValue('angle');
-        //var value_pin = Blockly.Python.valueToCode(block, 'pin', Blockly.Python.ORDER_ATOMIC);
-        //var value_angle = Blockly.Python.valueToCode(block, 'angle', Blockly.Python.ORDER_ATOMIC);
-        var code = `PWM(Pin(${value_pin}), freq=50).duty(int(25.57 + (((${value_angle}) / 180.0) * 102.3)))\n`;
+        var value_pin = block.getFieldValue('pin');//เรียกค่าจาก %1
+        var value_angle = block.getFieldValue('angle');//เรียกค่า %2
+        
+        var code = `PWM(Pin(${value_pin}), freq=50).duty(int(25.57 + (((${value_angle}) / 180.0) * 102.3)))\n`; //ส่วนโค๊ด
         return code;
       };
         // servo End //////////////////////////////////
