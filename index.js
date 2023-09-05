@@ -321,7 +321,7 @@ addBoard({
                         },
 
                          //LED Start //////////////////////////////////
-                        {
+                        /*{
                             xml: `
                             <block type="led_onoff">
                                 <value name="pin_trig">
@@ -331,7 +331,7 @@ addBoard({
                                 </value>
                             </block>
                         `
-                        },
+                        },*/
                         {
                             xml: `
                             <block type="led_left">
