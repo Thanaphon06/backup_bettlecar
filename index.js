@@ -19,6 +19,8 @@ addBoard({
         
         "blocks/beetlecar_blocks.js",
         "blocks/beetlecar_gen.js",
+        //"blocks/test_blocks.js",
+        //"blocks/test_gen.js"
 
     ],
     modules: [
@@ -310,6 +312,8 @@ addBoard({
                                 </block>
                             `
                         },
+                        
+                        
                         //servo End //////////////////////////////////
 
                         {
