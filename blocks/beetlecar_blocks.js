@@ -1,9 +1,9 @@
 Blockly.Msg.buttonA_Msg = "SW_A";
 Blockly.Msg.buttonB_Msg = "SW_B";
-Blockly.Msg.LED_LIFT_Msg = "Left_ON";
-Blockly.Msg.LED_RIGHT_Msg = "Right_ON";
-Blockly.Msg.LEFT_OFF = "Left_OFF";
-Blockly.Msg.RIGHT_OFF = "Right_OFF";
+Blockly.Msg.LED_LIFT_Msg = "Left ON";
+Blockly.Msg.LED_RIGHT_Msg = "Right ON";
+Blockly.Msg.LEFT_OFF = "Left OFF";
+Blockly.Msg.RIGHT_OFF = "Right OFF";
 Blockly.Msg.On_Msg = "ON";
 Blockly.Msg.OFF_Msg = "Off";
 Blockly.Msg.mt_sigh = ">=";
@@ -49,46 +49,92 @@ Blockly.defineBlocksWithJsonArray([
   "tooltip": "",
   "helpUrl": ""
 },
+{
+  "type": "new_motor3",
+  "message0": "Motor %1 move %2 at speed %3",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "motor",
+      "options": [
+        [
+          "left",
+          "left"
+        ],
+        [
+          "right",
+          "right"
+        ],
+        [
+          "all",
+          "all"
+        ]
+      ]
+    },
+    {
+      "type": "field_dropdown",
+      "name": "move",
+      "options": [
+        [
+          "forward",
+          "forward"
+        ],
+        [
+          "backward",
+          "backward"
+        ]
+      ]
+    },
+    {
+      "type": "field_number",
+      "name": "speed",
+      "value": 204,
+      "min": 0,
+      "max": 1023
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
 
 //Motor End //////////////////////////////////
 
 //servo Start ////////////////////////////////
 {
-  "type": "servo", //ชื่อ
-  "message0": "Servo %1 Set Angle %2", //ข้อความที่ขึ้นบนบล็อก %1 %2 คือช่องที่ให้ผู้ใช้ใส่ข้อมูล
-        "args0": [
-          {
-            //%1
-            "type": "field_dropdown", //ระบุประเภท อันนี้คือ dropdown
-            "name": "pin", //ตั้งชื่อ
-            "options": [
-              [
-                "Lift Up/Lift Down (S2)",//ข้อความตัวเลือก
-                "17"//ค่าที่ส่งไปให้ตัว Generators
-              ],
-              [
-                "Clamp (S1)",//ข้อความตัวเลือกที่2
-                "16"//ค่าที่ส่งไปให้ตัว Generators
-              ]
-            ]
-          },
-          {
-            //%2
-            "type": "field_angle",//ระบุประเภท
-            "name": "angle",//ตั้งชื่อ
-            "angle": 90, //ตั้งค่ามุม
-            "min": 0,     // Minimum angle
-            "max": 90     // Maximum angle
-          }
+  "type": "servo",
+  "message0": "Servo %1 Set Angle %2",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "pin",
+      "options": [
+       [
+          "Lift Up/Lift Down (S1)",//ข้อความตัวเลือก
+          "16"//ค่าที่ส่งไปให้ตัว Generators
         ],
-        
-      //"inputsInline": true, //ใช้สำหรับเป็นตัวเงื่อนไข ไว้ต่อ if else
-      "previousStatement": null,//กำหนดให้บล็อกสามารถต่อจากข้างบน
-      "nextStatement": null,//กำหนดให้บล็อกสามารถต่อจากข้างล่าง
-      "colour": "#1E8449",//สี
-      "tooltip": "",
-      "helpUrl": ""
-      },
+        [
+          "Clamp (S2)",//ข้อความตัวเลือกที่2
+          "17"//ค่าที่ส่งไปให้ตัว Generators
+        ]
+      ]
+    },
+    {
+      "type": "field_angle",
+      "name": "angle",
+      "angle": 90
+    }
+  ],
+  
+"inputsInline": true,
+"previousStatement": null,
+"nextStatement": null,
+"colour": "#1E8449",
+"tooltip": "",
+"helpUrl": ""
+},
 //servo End //////////////////////////////////
 
 /*OLED Start /////////////////////////////////
@@ -319,30 +365,7 @@ OLED End *////////////////////////////////////
 //Buzzer End /////////////////////////////////
 
 //LED Start //////////////////////////////////
-{        
-  "type": "led_onoff",
-            "message0": "LED: %1",
-            "args0":[
-            {
-              "type": "field_dropdown",
-              "name": "pin_trig",
-              "options": [
-                [Blockly.Msg.LED_LIFT_Msg , "1"],
-                [Blockly.Msg.LEFT_OFF , "2"],
-                [Blockly.Msg.LED_RIGHT_Msg , "3"],                
-                [Blockly.Msg.RIGHT_OFF , "4"]
-              ]
-                
-            }
-          ], 
-          "inputsInline": true,
-          "previousStatement": null,
-          "nextStatement": null,
-          "colour": "#0aa83c",
-          "tooltip": "",
-          "helpUrl": ""
-          
-},
+
 {        
   "type": "led_left",
             "message0": "LED: %1",
@@ -352,8 +375,8 @@ OLED End *////////////////////////////////////
               "name": "pin_trig",
               "options": [
                 [Blockly.Msg.LED_LIFT_Msg , "1"],
-                [Blockly.Msg.LEFT_OFF , "2"]
-               
+                [Blockly.Msg.LEFT_OFF , "2"],
+                
               ]
                 
             }
@@ -489,7 +512,7 @@ OLED End *////////////////////////////////////
   {
     
     "type":"switch",
-        "message0": "Switch: %1 is put",
+        "message0": "Switch: %1 is push",
         "args0":[
           {
             "type" : "field_dropdown",
