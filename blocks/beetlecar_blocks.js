@@ -49,7 +49,7 @@ Blockly.defineBlocksWithJsonArray([
   "tooltip": "",
   "helpUrl": ""
 },
-{
+ {
   "type": "new_motor3",
   "message0": "Motor %1 move %2 at speed %3",
   "args0": [
@@ -104,31 +104,33 @@ Blockly.defineBlocksWithJsonArray([
 
 //servo Start ////////////////////////////////
 {
-  "type": "servo",
-  "message0": "Servo %1 Set Angle %2",
+  "type": "servo", 
+  "message0": "Servo %1 Set Angle %2", 
   "args0": [
     {
+     
       "type": "field_dropdown",
       "name": "pin",
       "options": [
-       [
-          "Lift Up/Lift Down (S1)",//ข้อความตัวเลือก
-          "16"//ค่าที่ส่งไปให้ตัว Generators
+        [
+          "Lift Up/Lift Down (S2)",
+          "17"
         ],
         [
-          "Clamp (S2)",//ข้อความตัวเลือกที่2
-          "17"//ค่าที่ส่งไปให้ตัว Generators
+          "Clamp (S1)",
+          "16"
         ]
       ]
     },
     {
+     
       "type": "field_angle",
       "name": "angle",
       "angle": 90
     }
   ],
   
-"inputsInline": true,
+
 "previousStatement": null,
 "nextStatement": null,
 "colour": "#1E8449",
@@ -365,7 +367,6 @@ OLED End *////////////////////////////////////
 //Buzzer End /////////////////////////////////
 
 //LED Start //////////////////////////////////
-
 {        
   "type": "led_left",
             "message0": "LED: %1",
@@ -512,7 +513,7 @@ OLED End *////////////////////////////////////
   {
     
     "type":"switch",
-        "message0": "Switch: %1 is push",
+        "message0": "Switch: %1 is put",
         "args0":[
           {
             "type" : "field_dropdown",

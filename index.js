@@ -50,7 +50,7 @@ addBoard({
             name: "Ultrasonic",
             files: "examples/ultrasonic_neo",
         },
-        "BlueTooth",
+        /*"BlueTooth",
         {
             name: "Bluetooth Command",
             files: "examples/bluetooth_ex",
@@ -63,7 +63,7 @@ addBoard({
         {
             name: "IR Command",
             files: "examples/ir_remote",
-        },
+        },*/
         "Line Tracking",
         {
             name: "Line Tracking",
@@ -98,10 +98,7 @@ addBoard({
         ///    name: "Servo Hold Object",
         ///    files: "examples/HBD_car",
        /// },
-        {
-            name: "Servo Clamp Object 2",
-            files: "examples/servo_car",
-        },
+       
 
 
     ],

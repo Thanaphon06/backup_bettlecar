@@ -252,10 +252,10 @@ LMOTOR1 = Pin(27, Pin.OUT)
 RMOTOR2 = Pin(26, Pin.OUT)
 LMOTOR2 = Pin(14, Pin.OUT)
 
-RMOTOR1_PWM = PWM(Pin(25), freq=50000)
-LMOTOR1_PWM = PWM(Pin(27), freq=50000)
-RMOTOR2_PWM = PWM(Pin(26), freq=50000)
-LMOTOR2_PWM = PWM(Pin(14), freq=50000)
+RMOTOR1_PWM = PWM(Pin(25), freq=1000)
+LMOTOR1_PWM = PWM(Pin(27), freq=1000)
+RMOTOR2_PWM = PWM(Pin(26), freq=1000)
+LMOTOR2_PWM = PWM(Pin(14), freq=1000)
 
 def forward(speed):
   RMOTOR1.on()
@@ -356,6 +356,67 @@ def right_for_sec(speed, duration):
   time.sleep(duration)
   stop()
 
+  
+def left_forward(speed):
+    LMOTOR1.on()
+    LMOTOR1_PWM.duty(int(speed))
+    RMOTOR1.off()
+    RMOTOR1_PWM.duty(int(0))
+    LMOTOR2.off()
+    LMOTOR2_PWM.duty(int(0))
+    RMOTOR2.off()
+    RMOTOR2_PWM.duty(int(0))
+
+def left_backward(speed):
+    LMOTOR1.off()
+    LMOTOR1_PWM.duty(int(0))
+    RMOTOR1.off()
+    RMOTOR1_PWM.duty(int(0))
+    LMOTOR2.on()
+    LMOTOR2_PWM.duty(int(speed))
+    RMOTOR2.off()
+    RMOTOR2_PWM.duty(int(0))
+  
+def right_forward(speed):
+    LMOTOR1.off()
+    LMOTOR1_PWM.duty(int(0))
+    RMOTOR1.on()
+    RMOTOR1_PWM.duty(int(speed))
+    LMOTOR2.off()
+    LMOTOR2_PWM.duty(int(0))
+    RMOTOR2.off()
+    RMOTOR2_PWM.duty(int(0))
+
+def right_backward(speed):
+    LMOTOR1.off()
+    LMOTOR1_PWM.duty(int(0))
+    RMOTOR1.off()
+    RMOTOR1_PWM.duty(int(0))
+    LMOTOR2.off()
+    LMOTOR2_PWM.duty(int(0))
+    RMOTOR2.on()
+    RMOTOR2_PWM.duty(int(speed))
+  
+def all_forward(speed):
+    LMOTOR1.on()
+    LMOTOR1_PWM.duty(int(speed))
+    RMOTOR1.on()
+    RMOTOR1_PWM.duty(int(speed))
+    LMOTOR2.off()
+    LMOTOR2_PWM.duty(int(0))
+    RMOTOR2.off()
+    RMOTOR2_PWM.duty(int(0))
+  
+def all_backward(speed):
+    LMOTOR1.off()
+    LMOTOR1_PWM.duty(int(0))
+    RMOTOR1.off()
+    RMOTOR1_PWM.duty(int(0))
+    LMOTOR2.on()
+    LMOTOR2_PWM.duty(int(speed))
+    RMOTOR2.on()
+    RMOTOR2_PWM.duty(int(speed))
+    
 #END STATE MOTOR
 scale5 = [523 , 554 , 587 ,622 , 659 , 698 ,739 , 783 , 830 , 880 , 932 , 987 , 1046 , 0]
 
@@ -371,113 +432,12 @@ twinkle_twinkle = [0, 0, 6, 6, 9, 9, 6, 13, 5, 5, 4, 4, 2, 2, 0, 13, 6, 6, 5, 5,
 
 bitsy_spider = [9, 0, 0, 2, 4, 4, 13, 4, 2, 0, 2, 4, 2, 13, 4, 4, 5, 7, 13, 7, 5, 4, 5, 7, 4, 0, 0, 2, 4, 13, 4, 2, 0, 2, 4, 0, 13, 7, 7, 0, 0, 0, 2, 4, 4, 13, 4, 2, 0, 2, 4, 0]
 
-class SSD1306(framebuf.FrameBuffer):
-    def __init__(self, width, height, external_vcc):
-        self.width = width
-        self.height = height
-        self.external_vcc = external_vcc
-        self.pages = self.height // 8
-        self.buffer = bytearray(self.pages * self.width)
-        super().__init__(self.buffer, self.width, self.height, framebuf.MONO_VLSB)
-        self.init_display()
-
-    def init_display(self):
-        for cmd in (
-            SET_DISP | 0x00,  # off
-            # address setting
-            SET_MEM_ADDR,
-            0x00,  # horizontal
-            # resolution and layout
-            SET_DISP_START_LINE | 0x00,
-            SET_SEG_REMAP | 0x01,  # column addr 127 mapped to SEG0
-            SET_MUX_RATIO,
-            self.height - 1,
-            SET_COM_OUT_DIR | 0x08,  # scan from COM[N] to COM0
-            SET_DISP_OFFSET,
-            0x00,
-            SET_COM_PIN_CFG,
-            0x02 if self.width > 2 * self.height else 0x12,
-            # timing and driving scheme
-            SET_DISP_CLK_DIV,
-            0x80,
-            SET_PRECHARGE,
-            0x22 if self.external_vcc else 0xF1,
-            SET_VCOM_DESEL,
-            0x30,  # 0.83*Vcc
-            # display
-            SET_CONTRAST,
-            0xFF,  # maximum
-            SET_ENTIRE_ON,  # output follows RAM contents
-            SET_NORM_INV,  # not inverted
-            # charge pump
-            SET_CHARGE_PUMP,
-            0x10 if self.external_vcc else 0x14,
-            SET_DISP | 0x01,
-        ):  # on
-            self.write_cmd(cmd)
-        self.fill(0)
-        self.show()
-
-    def poweroff(self):
-        self.write_cmd(SET_DISP | 0x00)
-
-    def poweron(self):
-        self.write_cmd(SET_DISP | 0x01)
-
-    def contrast(self, contrast):
-        self.write_cmd(SET_CONTRAST)
-        self.write_cmd(contrast)
-
-    def invert(self, invert):
-        self.write_cmd(SET_NORM_INV | (invert & 1))
-
-    def show(self):
-        x0 = 0
-        x1 = self.width - 1
-        if self.width == 64:
-            # displays with width of 64 pixels are shifted by 32
-            x0 += 32
-            x1 += 32
-        self.write_cmd(SET_COL_ADDR)
-        self.write_cmd(x0)
-        self.write_cmd(x1)
-        self.write_cmd(SET_PAGE_ADDR)
-        self.write_cmd(0)
-        self.write_cmd(self.pages - 1)
-        self.write_data(self.buffer)
-
-
-class SSD1306_I2C(SSD1306):
-    def __init__(self, width, height, addr=0x3C, external_vcc=False):
-        machine = os.uname().machine
-        if ("KidBright32" in machine) or ("KidMotor V4" in machine):
-            self.i2c = I2C(1, scl=Pin(5), sda=Pin(4), freq=400000)
-        elif ("Mbits" in machine) or ("OpenBIT" in machine):
-            self.i2c = I2C(0, scl=Pin(21), sda=Pin(22), freq=400000)
-        else:
-            self.i2c = I2C(0, scl=Pin(22), sda=Pin(21), freq=400000)
-        self.addr = addr
-        self.temp = bytearray(2)
-        self.write_list = [b"\x40", None]  # Co=0, D/C#=1
-        super().__init__(width, height, external_vcc)
-
-    def write_cmd(self, cmd):
-        self.temp[0] = 0x80  # Co=1, D/C#=0
-        self.temp[1] = cmd
-        self.i2c.writeto(self.addr, self.temp)
-
-    def write_data(self, buf):
-        self.write_list[1] = buf
-        self.i2c.writevto(self.addr, self.write_list)
-        
-#END STATE OLED
-
 #SERVOR STATE START
 
 def servo_LiftUp(angle):
-    PWM(Pin(17), freq=50).duty(int(0.5 * angle + 31))
+    PWM(Pin(16), freq=50).duty(int(0.5 * angle + 31))
 
 def servo_Clamp(angle):
-    PWM(Pin(16), freq=50).duty(int((4/9) * angle + 48))
+    PWM(Pin(17), freq=50).duty(int((4/9) * angle + 48))
 
 #SERVOR STATE END
